@@ -57,7 +57,7 @@
             "phone": "",
             "portable": "",
             "car": "",
-            "default": ["", " ", " "]
+            "default": ["", " ", " "]
         },
         "on-click": "pavucontrol"
     },
@@ -81,6 +81,7 @@
     "river/tags": {
 		"num-tags": 6
     },
+
 	"network": {
 		"tooltip": false,
 		"format-wifi": "  {essid}",
@@ -122,12 +123,14 @@
     "cpu": {
         "interval": 15,
         "format": " {}%",
-        "max-length": 10
+        "max-length": 10,
+        "on-click" : "kitty -e htop"
     },
     "memory": {
         "interval": 30,
         "format": " {}%",
-        "max-length": 10
+        "max-length": 10,
+        "on-click" : "kitty -e htop"
     },
     "custom/media": {
         "interval": 30,

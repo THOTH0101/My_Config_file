@@ -46,6 +46,11 @@
   opacity: 0.7;
 }
 
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+  opacity: 1;
+}
+
 window#waybar {
   background: transparent;
 }

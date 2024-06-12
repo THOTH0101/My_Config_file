@@ -1,0 +1,25 @@
+#!/usr/bin/sh
+
+BROWSER="firefox"
+
+declare -a options=(
+
+"1 - https://pw.live"
+"2 - https://github.com"
+"3 - https://reddit.com/r/unixporn"
+"quit"
+)
+
+choice=$(printf '%s\n' "${options[@]}" | rofi -dmenu -i -l 20 -p 'Bookmarks')
+
+if [[ "$choice" == quit ]]; then 
+	echo "Program Terminated. " && exit 1 
+
+elif [ "$choice" ]; then
+	cfg=$(printf '%s\n' "${choice}" | awk '{print $NF}')
+	$BROWSER "$cfg"
+else
+	echo "Program Terminated." && exit 1
+fi
+
+

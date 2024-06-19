@@ -1,32 +1,40 @@
+/* -----------------------------------------------------
+ * General 
+ * ----------------------------------------------------- */
+
 * {
   border: none;
-  border-radius: 10;
+  border-radius: 0;
   font-family: 'JetbrainsMono Nerd Font';
-  font-size: 15px;
+  font-size: 12px;
   min-height: 10px;
 }
 
+/* -----------------------------------------------------
+ * Workspaces 
+ * ----------------------------------------------------- */
+
 #workspaces {
   background: #282828;
-  margin: 5px 1px 6px 1px;
+  margin: 4px 1px;
   padding: 0px 1px;
   border-radius: 15px;
   border: 0px;
   font-weight: bold;
   font-style: normal;
   opacity: 0.8;
-  font-size: 16px;
+  font-size: 14px;
   color: #ebdbb2;
 }
 
 #workspaces button {
-  padding: 0px 5px;
+  padding: 0px 1px;
   margin: 4px 3px;
   border-radius: 30px;
   border: 0px;
   color: #ebdbb2;
   background: #ebdbb2;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.5s ease-in-out;
   opacity: 0.4;
 }
 
@@ -34,8 +42,8 @@
   color: #ebdbb2;
   background: #ebdbb2;
   border-radius: 15px;
-  min-width: 40px;
-  transition: all 0.3s ease-in-out;
+  min-width: 25px;
+  transition: all 0.5s ease-in-out;
   opacity: 1;
 }
 
@@ -43,145 +51,114 @@
   color: #ebdbb2;
   background: #ebdbb2;
   border-radius: 15px;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 #workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: #f53c3c;
+  background-color: #f53c3c;
   opacity: 1;
 }
 
-window#waybar {
+/* window#waybar {
   background: transparent;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+} */
+
+window#waybar {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-bottom: 0px solid #ffffff;
+  /* color: #FFFFFF; */
+  transition-property: background-color;
+  transition-duration: 0.5s;
 }
 
 window#waybar.hidden {
   opacity: 0.2;
 }
 
+window#waybar.empty #window {
+  background-color: transparent;
+  border: none;
+}
+
+/* -----------------------------------------------------
+ * Window
+ * ----------------------------------------------------- */
+
+/* #window {
+  background: #282828;
+  margin: 8px 15px 8px 0px;
+  padding: 2px 10px 0px 10px;
+  border-radius: 12px;
+  color: #ebdbb2;
+  font-size: 16px;
+  font-weight: normal;
+  opacity: 0.8;
+} */
+
 #window {
-  margin-top: 6px;
+  /* margin-top: 6px;
   padding-left: 10px;
   padding-right: 10px;
-  border-radius: 10px;
+  border-radius: 10px; */
+  padding: 0px 10px;
+  margin: 4px 4px;
+  border-radius: 30px;
   transition: none;
   color: #ebdbb2;
   background: #282828;
+  border: 2px solid #ebdbb2;
 }
+
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+
+tooltip {
+  border-radius: 10px;
+  background-color: #ebdbb2;
+  opacity: 0.8;
+  padding: 20px;
+  margin: 2px;
+}
+
+tooltip label {
+  color: #282828;
+}
+
+/* -----------------------------------------------------
+ * Modules
+ * ----------------------------------------------------- */
+
+.modules-left > widget:first-child > #workspaces {
+  margin-left: 0;
+}
+
+.modules-right > widget:last-child > #workspaces {
+  margin-right: 0;
+}
+
 /*
-#tags {
-  margin-top: 6px;
-  margin-left: 12px;
-  font-size: 4px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  background: #161320;
-  transition: none;
-}
-
-#tags button {
-  transition: none;
-  color: #b5e8e0;
-  background: transparent;
-  font-size: 16px;
-  border-radius: 2px;
-}
-
-#tags button.occupied {
-  transition: none;
-  color: #f28fad;
-  background: transparent;
-  font-size: 4px;
-}
-
-#tags button.focused {
-  color: #abe9b3;
-  border-top: 2px solid #abe9b3;
-  border-bottom: 2px solid #abe9b3;
-}
-
-#tags button:hover {
-  transition: none;
-  box-shadow: inherit;
-  text-shadow: inherit;
-  color: #fae3b0;
-  border-color: #e8a2af;
-  color: #e8a2af;
-}
-
-#tags button.focused:hover {
-  color: #e8a2af;
-}
-
-#network {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  transition: none;
-  color: #161320;
-  background: #bd93f9;
-}
-
-#pulseaudio {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  transition: none;
-  color: #1a1826;
-  background: #fae3b0;
-}
-
-#battery {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  transition: none;
-  color: #161320;
-  background: #b5e8e0;
-}
-
-#battery.charging,
-#battery.plugged {
-  color: #161320;
-  background-color: #b5e8e0;
-}
-
-#battery.critical:not(.charging) {
-  background-color: #b5e8e0;
-  color: #161320;
-  animation-name: blink;
-  animation-duration: 0.5s;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
-}
-*/
+  -----------------------------------------------------
+  *
+  Battery
+  *
+  -----------------------------------------------------
+  */
 
 #battery {
   background-color: #ebdbb2;
-  font-size: 16px;
+  font-size: 12px;
   color: #282828;
-  /*
-  border-radius: 15px;
-  padding: 2px 15px 0px 10px;
-  margin: 8px 15px 8px 0px;
-  */
-  margin-top: 6px;
-  margin-left: 8px;
+  margin-top: 4px;
+  margin-left: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   border-radius: 15px;
-  opacity: 0.8;
+  border: 2px solid #282828;
 }
 
 #battery.charging,
@@ -207,22 +184,21 @@ window#waybar.hidden {
   animation-direction: alternate;
 }
 
+/* -----------------------------------------------------
+ * Pulseaudio
+ * ----------------------------------------------------- */
+
 #pulseaudio {
   background-color: #ebdbb2;
-  font-size: 16px;
+  font-size: 12px;
   color: #282828;
-  /*
-  border-radius: 15px;
-  padding: 2px 10px 0px 10px;
-  margin: 8px 15px 8px 0px;
-  */
-  opacity: 0.8;
-  margin-top: 6px;
-  margin-left: 8px;
+  margin-top: 4px;
+  margin-left: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   border-radius: 15px;
+  border: 2px solid #282828;
 }
 
 #pulseaudio.muted {
@@ -237,150 +213,103 @@ window#waybar.hidden {
   }
 }
 
+/* -----------------------------------------------------
+ * Brightness
+ * ----------------------------------------------------- */
+
 #backlight {
-  margin-top: 6px;
-  margin-left: 8px;
+  margin-top: 4px;
+  margin-left: 4px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   border-radius: 15px;
   transition: none;
   color: #282828;
   background: #ebdbb2;
+  border: 2px solid #282828;
 }
 
-/*
-#clock {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  transition: none;
-  color: #161320;
-  background: #abe9b3;
-  background: #1A1826;
-}
-*/
+/* -----------------------------------------------------
+ * Clock
+ * ----------------------------------------------------- */
 
 #clock {
   background-color: #282828;
-  font-size: 16px;
+  font-size: 12px;
   color: #ebdbb2;
-  /*
-  border-radius: 15px;
-  padding: 1px 10px 0px 10px;
-  margin: 8px 15px 8px 0px;
-  */
-  margin-top: 6px;
-  margin-left: 8px;
+  margin-top: 4px;
+  margin-right: 8px;
   padding-left: 10px;
   padding-right: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   border-radius: 15px;
-  opacity: 0.8;
-  border: 3px solid #ebdbb2;
+  border: 2px solid #ebdbb2;
 }
 
 #memory {
-  margin-top: 6px;
-  margin-left: 8px;
+  margin-top: 4px;
+  margin-left: 4px;
   padding-left: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   padding-right: 10px;
   border-radius: 15px;
   transition: none;
   color: #282828;
   background: #ebdbb2;
+  border: 2px solid #282828;
 }
+
 #cpu {
-  margin-top: 6px;
-  margin-left: 8px;
+  margin-top: 4px;
+  margin-left: 6px;
   padding-left: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   padding-right: 10px;
   border-radius: 15px;
   transition: none;
   color: #ebdbb2;
   background: #282828;
-  border: 3px solid #ebdbb2;
+  border: 2px solid #ebdbb2;
 }
 
+/* -----------------------------------------------------
+ * Tray
+ * ----------------------------------------------------- */
+
 #tray {
-  margin-top: 6px;
-  margin-left: 8px;
+  margin-top: 4px;
+  margin-left: 4px;
   padding-left: 10px;
-  margin-bottom: 0px;
+  margin-bottom: 4px;
   padding-right: 10px;
   border-radius: 10px;
   transition: none;
-  /*color: #b5e8e0;*/
   background: #282828;
+  border: 2px solid #ebdbb2;
 }
 
-/*
-#custom-launcher {
-  font-size: 24px;
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 5px;
-  border-radius: 10px;
-  transition: none;
-  color: #89dceb;
-  background: #161320;
+#tray > .passive {
+  -gtk-icon-effect: dim;
 }
-*/
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
 
 #custom-power {
-  font-size: 20px;
-  margin-top: 6px;
-  margin-left: 8px;
-  margin-right: 8px;
-  padding-left: 10px;
-  padding-right: 5px;
-  margin-bottom: 0px;
+  font-size: 18px;
+  margin-top: 4px;
+  margin-left: 4px;
+  margin-right: 10px;
+  padding: 0;
+  margin-bottom: 4px;
   border-radius: 10px;
   transition: none;
   color: #ebdbb2;
   background: transparent;
 }
 
-#custom-wallpaper {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  transition: none;
-  color: #282828;
-  background: transparent;
-}
-
-/*
-#custom-updates {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  transition: none;
-  color: #161320;
-  background: #e8a2af;
-}
-*/
-
-#custom-media {
-  margin-top: 6px;
-  margin-left: 8px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-  border-radius: 10px;
-  transition: none;
-  color: #161320;
-  background: #f2cdcd;
+#custom-empty {
+  margin-left: 1px;
 }

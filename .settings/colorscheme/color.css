@@ -1,0 +1,9 @@
+/* -----------------------------------------------------
+ * import gruvbox colors 
+ * ----------------------------------------------------- */
+@define-color background #282828;
+@define-color background-alt #353535;
+@define-color foreground #EBDBB2;
+@define-color selected #83A598;
+@define-color active #B8BB26;
+@define-color urgent #FB4934;

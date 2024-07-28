@@ -110,7 +110,7 @@ window#waybar.empty #window {
   transition: none;
   color: @foreground;
   background: @background;
-  border: 2px solid @foreground;
+  opacity: 0.8;
 }
 
 /* -----------------------------------------------------
@@ -163,7 +163,7 @@ tooltip * {
   padding-right: 10px;
   margin-bottom: 4px;
   border-radius: 15px;
-  border: 2px solid @background;
+  opacity: 0.8;
 }
 
 #battery.charging,
@@ -202,7 +202,7 @@ tooltip * {
   padding-right: 10px;
   margin-bottom: 4px;
   border-radius: 15px;
-  border: 2px solid @background;
+  opacity: 0.8;
 }
 
 #pulseaudio.muted {
@@ -231,7 +231,7 @@ tooltip * {
   transition: none;
   color: @background;
   background: @foreground;
-  border: 2px solid @background;
+  opacity: 0.8;
 }
 
 /* -----------------------------------------------------
@@ -248,7 +248,7 @@ tooltip * {
   padding-right: 10px;
   margin-bottom: 4px;
   border-radius: 15px;
-  border: 2px solid @foreground;
+  opacity: 0.8;
 }
 
 #memory {
@@ -261,7 +261,7 @@ tooltip * {
   transition: none;
   color: @background;
   background: @foreground;
-  border: 2px solid @background;
+  opacity: 0.8;
 }
 
 #cpu {
@@ -274,7 +274,7 @@ tooltip * {
   transition: none;
   color: @foreground;
   background: @background;
-  border: 2px solid @foreground;
+  opacity: 0.8;
 }
 
 /* -----------------------------------------------------
@@ -290,7 +290,7 @@ tooltip * {
   border-radius: 10px;
   transition: none;
   background: @background;
-  border: 2px solid @foreground;
+  opacity: 0.8;
 }
 
 #tray > .passive {
@@ -312,6 +312,7 @@ tooltip * {
   transition: none;
   color: @foreground;
   background: transparent;
+  opacity: 0.8;
 }
 
 #custom-empty {

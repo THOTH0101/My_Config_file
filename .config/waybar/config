@@ -1,11 +1,18 @@
 {
 	"layer": "top",
   "spacing" : 0,
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
 
   "modules-left": [
+  "custom/left",
     "cpu",
   "memory",
+  "temperature",
   "hyprland/window",
+  "custom/right"
   ],
 
   "modules-center": [
@@ -13,16 +20,19 @@
   ],
 
   "modules-right": [
+  "custom/left",
   "tray",
   "backlight",
   "pulseaudio",
   "battery",
-  "custom/power",
   "clock",
+  "custom/power",
+  "custom/right"
   ],
 
   // Clock
   "clock": {
+    "format": " {:%H:%M}",
     // "timezone": "America/New_York",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
     "format-alt": "{:%Y-%m-%d}"
@@ -110,20 +120,26 @@
     "tooltip": false
   },
 
-  // Hyprland Window
-  "hyprland/window": {
-    "rewrite": {
-      "(.*) - Brave": "$1",
-      "(.*) - Chromium": "$1",
-      "(.*) - Brave Search": "$1",
-      "(.*) - Outlook": "$1",
-      "(.*) Microsoft Teams": "$1"
-    },
-    "separate-outputs": true
+
+  // temperature
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    // "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C ",
+    "format": " {temperatureC}°C"
   },
 
-  // Empty
-  "custom/empty": {
-    "format": " "
+  // modules for padding
+  "custom/left": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
+  },
+
+  "custom/right": {
+    "format": " ",
+    "interval" : "once",
+    "tooltip": false
   },
 }

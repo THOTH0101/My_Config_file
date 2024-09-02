@@ -41,11 +41,7 @@ return {
     {
       "folke/which-key.nvim",
       optional = true,
-      opts = {
-        defaults = {
-          ["<leader>d"] = { name = "+debug" },
-        },
-      },
+      require("which-key").add({ "<leader>d", group = "debug" }),
     },
 
     -- mason.nvim integration

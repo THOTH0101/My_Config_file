@@ -3,6 +3,8 @@ return {
   optional = true,
   opts = function(_, opts)
     opts.linters_by_ft = {
+      cmake = { "cmakelint" },
+      php = { "phpcs" },
       elixir = { "credo" },
     }
 

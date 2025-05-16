@@ -1,9 +1,37 @@
 return {
   "mfussenegger/nvim-dap",
+  optional = true,
   recommended = true,
   desc = "Debugging support. Requires language specific adapters to be configured. (see lang extras)",
 
+  opts = function()
+    local dap = require("dap")
+    local path = require("mason-registry").get_package("php-debug-adapter"):get_install_path()
+    dap.adapters.php = {
+      type = "executable",
+      command = "node",
+      args = { path .. "/extension/out/phpDebug.js" },
+    }
+  end,
+
+  opts = function()
+    local dap = require("dap")
+    dap.configurations.java = {
+      {
+        type = "java",
+        request = "attach",
+        name = "Debug (Attach) - Remote",
+        hostName = "127.0.0.1",
+        port = 5005,
+      },
+    }
+  end,
+
   dependencies = {
+    {
+      "williamboman/mason.nvim",
+      opts = { ensure_installed = { "java-debug-adapter", "java-test" } },
+    },
 
     -- fancy UI for the debugger
     {

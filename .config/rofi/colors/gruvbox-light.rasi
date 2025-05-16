@@ -1,0 +1,15 @@
+/**
+ *
+ * Author : Omolara Adebayo (thoth)
+ * 
+ * Colors
+ **/
+
+* {
+    background:     #EBDBB2FF;
+    background-alt: #F3E8CCFF;
+    foreground:     #282828FF;
+    selected:       #83A598FF;
+    active:         #B8BB26FF;
+    urgent:         #FB4934FF;
+}

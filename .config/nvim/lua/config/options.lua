@@ -5,3 +5,7 @@ vim.opt.winbar = "%=%m %f"
 vim.opt.wrap = true
 vim.opt.swapfile = false
 vim.opt.backup = false
+
+-- LSP Server to use for PHP.
+-- Set to "intelephense" to use intelephense instead of phpactor.
+vim.g.lazyvim_php_lsp = "intelephense"

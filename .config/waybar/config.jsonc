@@ -1,0 +1,136 @@
+{
+  "layer": "top",
+  "position": "top",
+  "width": 1300,
+  "margin-top": 3,
+  "margin-bottom": 0,
+  "spacing": 0,
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "fixed-center": true,
+  // Module Layout
+  "modules-left": [
+    "custom/left",
+    "hyprland/workspaces",
+  ],
+  "modules-center": [
+    "clock",
+  ],
+  "modules-right": [
+    "custom/updates",
+    // "cpu",
+    "tray",
+    "battery",
+    "custom/power",
+    "custom/right"
+  ],
+  // Clock
+  "clock": {
+    // "format": " {:%H:%M}",
+    "format": " {:%H:%M   %a %d}",
+    "tooltip": false
+    // "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+  },
+  // Workspaces
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "on-click": "activate",
+    "active-only": false,
+    "all-outputs": true,
+    "format": "{icon}",
+    "format-icons": {
+      "urgent": " ",
+      "active": " ",
+      "default": " ",
+      "sort-by-number": true
+    },
+    "persistent-workspaces": {
+      "*": 4
+    }
+  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 40,
+      "critical": 30
+    },
+    "format": "{icon} ",
+    "format-charging": "{icon} 󱐋",
+    "format-plugged": "{icon} 󱐋",
+    // "format-alt": "{icon} {capacity}%",
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip-format": "Power: {capacity}% Time: {time}"
+    // "format-charging": "󰂄 {capacity}%",
+    // "format-alt": "{time} {icon}",
+    // "format-icons": [
+    //   "󰂎",
+    //   "󰁺",
+    //   "󰁻",
+    //   "󰁼",
+    //   "󰁽",
+    //   "󰁾",
+    //   "󰁿",
+    //   "󰂀",
+    //   "󰂁",
+    //   "󰂂",
+    //   "󰁹"
+    // ]
+  },
+  "tray": {
+    "icon-size": 12,
+    "spacing": 4
+  },
+  "cpu": {
+    "interval": 15,
+    "format": " {}%",
+    "max-length": 10,
+    "on-click": "kitty -e htop"
+  },
+  "memory": {
+    "interval": 30,
+    "format": " {}%",
+    "max-length": 10,
+    "on-click": "kitty -e htop"
+  },
+  // Power Menu
+  "custom/power": {
+    "format": "",
+    "on-click": "~/.config/rofi/powermenu/powermenu.sh",
+    "tooltip": false
+  },
+  // temperature
+  "temperature": {
+    // "thermal-zone": 2,
+    // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+    // "critical-threshold": 80,
+    // "format-critical": "{temperatureC}°C ",
+    "format": " {temperatureC}°C"
+  },
+  // modules for padding
+  "custom/left": {
+    "format": " ",
+    "interval": "once",
+    "tooltip": false
+  },
+  "custom/right": {
+    "format": " ",
+    "interval": "once",
+    "tooltip": false
+  },
+  // updates
+  "custom/updates": {
+    "format": " {}",
+    "exec": "checkupdates | wc -l",
+    "exec-if": "[[ $(checkupdates | wc -l) != 0 ]]",
+    "interval": 10,
+    "on-click": "kitty -e pacman -Syu && notify-send 'The system has been updated' ",
+  },
+}
